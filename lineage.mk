@@ -13,6 +13,10 @@ PRODUCT_MODEL := SM-T800
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.image-dex2oat-filter=everything \
+	dalvik.vm.dex2oat-filter=everything
+
 PRODUCT_NAME := lineage_chagallwifi
 PRODUCT_DEVICE := chagallwifi
 
@@ -21,3 +25,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=chagallwifi \
     PRODUCT_DEVICE=chagallwifi \
     TARGET_DEVICE=chagallwifi
+

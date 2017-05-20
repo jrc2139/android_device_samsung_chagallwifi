@@ -35,6 +35,10 @@ USE_CLANG_PLATFORM_BUILD := true
 
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_deathly_chagallwifi_defconfig
+TARGET_GCC_VERSION := 6.x
+TARGET_GCC_VERSION_AND := 6.x
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/arm/$(TARGET_KERNEL_CROSS_COMPILE_PREFIX)6.x/bin
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -62,6 +66,8 @@ BOARD_HARDWARE_CLASS := $(COMMON_PATH)/cmhw
 
 # custom additions to updater-script
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/samsung/chagallwifi/releasetools/ota_from_target_files
+
+WITH_DEXPREOPT := true
 
 # Inherit from exynos5420-common
 include device/samsung/exynos5420-common/BoardConfigCommon.mk
